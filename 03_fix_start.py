@@ -13,9 +13,12 @@ Dica: s.replace(stra, strb) retorna uma versão da string s
 onde todas as instancias de stra foram substituidas por strb.
 """
 
+
 def fix_start(s):
-    # +++ SUA SOLUÇÃO +++
-    return
+
+    new_list = list(s.replace(s[0], '*'))
+    new_list[0] = s[0]
+    return ''.join(new_list)
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
