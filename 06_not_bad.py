@@ -8,10 +8,13 @@ por 'good' e retorne a string resultante.
 
 Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
+import re
 
 def not_bad(s):
-    # +++ SUA SOLUÇÃO +++
-    return
+    phase = s
+    if 'not' and 'bad' in s and s.index('bad') > s.index('not'):
+        phase = s.replace(re.search(r'not (.*?)bad', s).group(), 'good')
+    return phase
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
