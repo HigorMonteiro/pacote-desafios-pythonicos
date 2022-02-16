@@ -10,21 +10,30 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
-def front_back(a, b):
-    # +++ SUA SOLUÇÃO +++
-    result = None
-    mod = len(a) % 2
-    if mod == 0 and len(a)/2:
-        r = int(len(a)/2)
-        if len(b) % 2 != 0:
-            mod_b = len(b) % 2
-            result = f"{a[:r]}{b[:2+mod_b]}{a[r:]}{b[-2:]}"
-        else:
-            result = f"{a[:r]}{b[0]}{a[r:]}{b[1]}"
-    else:
-        result = f"{a[:2+mod]}{b[:2]}{a[-2:]}{b[-1:]}"
-    return result
 
+"""
+    First try 
+"""
+# def front_back(a, b):
+#     # +++ SUA SOLUÇÃO +++
+#     result = None
+#     mod = len(a) % 2
+#     if mod == 0 and len(a)/2:
+#         r = int(len(a)/2)
+#         if len(b) % 2 != 0:
+#             mod_b = len(b) % 2
+#             result = f"{a[:r]}{b[:2+mod_b]}{a[r:]}{b[-2:]}"
+#         else:
+#             result = f"{a[:r]}{b[0]}{a[r:]}{b[1]}"
+#     else:
+#         result = f"{a[:2+mod]}{b[:2]}{a[-2:]}{b[-1:]}"
+#     return result
+import math
+
+def front_back(a, b):
+
+    return ''.join([a[:(math.ceil(len(a) / 2))], b[:(math.ceil(len(b) / 2))],
+                    a[(math.ceil(len(a) / 2)):], b[(math.ceil(len(b) / 2)):]])
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
