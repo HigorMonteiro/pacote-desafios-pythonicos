@@ -12,7 +12,18 @@ a-frente + b-frente + a-trás + b-trás
 """
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    result = None
+    mod = len(a) % 2
+    if mod == 0 and len(a)/2:
+        r = int(len(a)/2)
+        if len(b) % 2 != 0:
+            mod_b = len(b) % 2
+            result = f"{a[:r]}{b[:2+mod_b]}{a[r:]}{b[-2:]}"
+        else:
+            result = f"{a[:r]}{b[0]}{a[r:]}{b[1]}"
+    else:
+        result = f"{a[:2+mod]}{b[:2]}{a[-2:]}{b[-1:]}"
+    return result
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -39,3 +50,19 @@ if __name__ == '__main__':
     test(front_back, ('abcd', 'xy'), 'abxcdy')
     test(front_back, ('abcde', 'xyz'), 'abcxydez')
     test(front_back, ('Kitten', 'Donut'), 'KitDontenut')
+
+
+def string_slice(s):
+
+    String = s
+
+    # Using slice constructor
+    s1 = slice(3)
+    s2 = slice(1, 5, 2) 
+    s3 = slice(-1, -12, -2)
+    
+    print("String slicing") 
+    print(String[s1]) 
+    print(String[s2]) 
+    print(String[s3])
+
